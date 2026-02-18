@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #0f172a;
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-hover: rgba(255, 255, 255, 0.1);
+  --primary: #8b5cf6;
+  --secondary: #f43f5e;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(15, 23, 42, 0.85);
+}
+
+body.light {
+  --bg-color: #f8fafc;
+  --surface: rgba(0, 0, 0, 0.03);
+  --surface-hover: rgba(0, 0, 0, 0.06);
+  --primary: #4f46e5;
+  --secondary: #e11d48;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border: rgba(0,0,0,0.05);
+  --nav-bg: rgba(248,250,252,0.85);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  transition: background-color 0.6s, color 0.6s;
+  /* cursor: none; */
+}
+
+/* Hide default cursor */
+* {
+  cursor: none;
+}
+
+/* Centered positioning */
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+/* Small core dot */
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 12px var(--primary);
+}
+
+/* Outer ring */
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--secondary);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, border 0.2s ease;
+}
+
+/* Hover effect */
+body.cursor-hover .cursor-outline {
+  transform: scale(1.6);
+  border-color: var(--primary);
+  box-shadow: 0 0 30px var(--primary);
+}
+
+/* Click effect */
+body.cursor-click .cursor-outline {
+  transform: scale(0.8);
+}
+
+/* Mobile safety */
+@media (max-width: 768px) {
+  .cursor-dot,
+  .cursor-outline {
+    display: none;
+  }
+}
+
+.page-section {
+  scroll-margin-top: 150px;
+}
+
+@media (max-width: 768px) {
+  .page-section {
+    scroll-margin-top: 90px;
+  }
+}
+
+
